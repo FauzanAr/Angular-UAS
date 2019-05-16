@@ -23,7 +23,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      {path:'home', component:AppComponent},
+      {path:'home', component:HomeComponent},
       {path:'friend', component:FriendComponent},
       {path:'contact-us', component:ContactUsComponent},
       {path:'**', component:NotFoundComponent}
