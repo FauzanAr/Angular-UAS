@@ -1,1 +1,40 @@
 <app-navbar></app-navbar>
+<div class="text-center">
+  <h2>Contact Me</h2>
+</div>
+<hr>
+<div class="container col12">
+  <form [formGroup]="form" >
+    <div class="form-group">
+      <label for="name">Your Name</label>
+        <input formControlName="name" id="name"type="text" class="form-control" placeholder="Masukkan Nama">
+        <div *ngIf="form.get('name').touched && form.get('name').invalid">
+          <small style="color: red;">This field is required</small>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Your E-Mail</label>
+        <input formControlName="email" type="email" class="form-control" placeholder="Masukkan E-mail">
+          <div *ngIf="form.get('email').touched && form.get('email').invalid">
+            <small style="color: red;">E-Mail is required</small>
+          </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Your Message</label>
+        <textarea formControlName="message" class="form-control" placeholder="Masukkan Pesan"></textarea>
+          <div *ngIf="form.get('message').touched && form.get('message').invalid">
+            <small style="color: red;">This field is required</small>
+          </div>
+    </div>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="send()">Send</button>
+  </form>
+</div>
+<hr>
+<div class="container" *ngIf="clicked" >
+  <h4>Your Data</h4>
+  <p>Username: {{this.getName().value}}</p>
+  <p>Email: {{this.getEmail().value}}</p>
+  <p>Message: {{this.getMessage().value}}</p>
+  <button type="submit" class="btn btn-danger" (click)="close()">Close</button>
+</div>
+
