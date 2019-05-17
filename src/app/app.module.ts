@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { VerifyEmailAddressComponent } from './verify-email-address/verify-email-address.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ContactUsComponent,
     NotFoundComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
+    VerifyEmailAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
       {path:'friend', component:FriendComponent},
       {path:'contact-us', component:ContactUsComponent},
       {path:'sign-up', component:SignUpComponent},
+      {path:'verify-email-address', component:VerifyEmailAddressComponent},
       {path:'**', component:NotFoundComponent}
     ]),
   ],
