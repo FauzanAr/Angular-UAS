@@ -10,16 +10,17 @@
 <br>
 <br>
 <br>
-<div class="container text-center">
-  <form [formGroup] = "loginForm">
+<div class="container">
+  <div class="form-group">
     <label>
-      Username<br>
-      <input type="text" formControlName="username">
+      Username
+      <input type="text" formControlName="username" class="form-control">
     </label>
-    <br>
     <label>
       Password<br>
       <input type="password" formControlName="password">
     </label>
-  </form>
+    <br>
+    <button type="submit" [disabled]="!profileForm.valid" class="btn btn-primary">Login</button>
+  </div>
 </div>
