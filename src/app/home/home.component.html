@@ -27,6 +27,8 @@
       </label>
     </div>
     <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="authService.SignIn(form.get('username').value, form.get('password').value)">Login</button>
+    Or
+    <button class="btn btn-primary" routerLink="/sign-up">Sign Up</button>
   </form>
   <hr>
   <div class="form-group">

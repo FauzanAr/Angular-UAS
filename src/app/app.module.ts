@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { environment } from '../environments/environment';
     FriendComponent,
     ContactUsComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { environment } from '../environments/environment';
       {path:'home', component:HomeComponent},
       {path:'friend', component:FriendComponent},
       {path:'contact-us', component:ContactUsComponent},
+      {path:'sign-up', component:SignUpComponent},
       {path:'**', component:NotFoundComponent}
     ]),
   ],
