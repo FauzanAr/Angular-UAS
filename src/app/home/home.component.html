@@ -15,7 +15,7 @@
   <form [formGroup]="form">
     <div class="form-group">
       <label for="email">email
-        <input formControlName="email" type="text" class="form-control">
+        <input formControlName="email" type="text" class="form-control" placeholder="Ex : test@fauzan.com">
         <div *ngIf="form.get('email').touched && form.get('email').invalid">
           <small style="color: red;">email is required</small>
         </div>

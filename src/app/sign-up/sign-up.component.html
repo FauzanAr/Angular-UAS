@@ -6,11 +6,11 @@
     <div class="card-body">
       <form [formGroup]="form">
         <div class="form-group">
-          <label for="username">Username
-            <input formControlName="username" type="text" class="form-control">
-            <div *ngIf="form.get('username').touched && form.get('username').invalid">
-              <div *ngIf="form.get('username').hasError('required')">
-                <small style="color: red;">Username is required</small>
+          <label for="Email">Email
+            <input formControlName="email" type="text" class="form-control" placeholder="Ex : text@fauzan.com">
+            <div *ngIf="form.get('email').touched && form.get('email').invalid">
+              <div *ngIf="form.get('email').hasError('required')">
+                <small style="color: red;">Email is required</small>
               </div>
               <div *ngIf="form.get('username').hasError('email')">
                 <small style="color: red;">Not a Valid Email!!</small>
