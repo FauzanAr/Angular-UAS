@@ -9,13 +9,13 @@
         <a class="nav-link" href="/home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/friend">Friends</a>
+        <a class="nav-link" href="/friend" *ngIf="authService.isLoggedIn">Friends</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/contact-us">Contact Me</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log Out</a>
+        <a class="nav-link" href="#" (click)="authService.SignOut()" *ngIf="authService.isLoggedIn==true">Log Out</a>
       </li>
     </ul>
   </div>
