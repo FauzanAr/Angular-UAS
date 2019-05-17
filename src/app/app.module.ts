@@ -11,6 +11,13 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 
+//Firebase services + Enviroment Module
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +31,11 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: '/home', pathMatch: 'full' },
       {path:'home', component:HomeComponent},
       {path:'friend', component:FriendComponent},
       {path:'contact-us', component:ContactUsComponent},
