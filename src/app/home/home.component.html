@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div class="container text-center" *ngIf="authService.isLoggedIn && authService.userData as data">
+  <p>Selamat datang {{data.email}}</p>
+</div>
 <div class="text-center">
   <h3>My Friends App..!</h3>
 </div>
@@ -11,10 +14,10 @@
 <div class="container text-center">
   <form [formGroup]="form">
     <div class="form-group">
-      <label for="username">Username
-        <input formControlName="username" type="text" class="form-control">
-        <div *ngIf="form.get('username').touched && form.get('username').invalid">
-          <small style="color: red;">Username is required</small>
+      <label for="email">email
+        <input formControlName="email" type="text" class="form-control">
+        <div *ngIf="form.get('email').touched && form.get('email').invalid">
+          <small style="color: red;">email is required</small>
         </div>
       </label>
     </div>
@@ -32,7 +35,7 @@
   </form>
   <hr>
   <div class="form-group">
-    <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+    <button type="button" class="btn btn-danger" (click)="authService.GoogleAuth()">
       <i class="fab fa-google-plus-g"></i>
       Log in with google
     </button>

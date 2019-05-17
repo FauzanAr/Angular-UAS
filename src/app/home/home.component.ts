@@ -11,7 +11,7 @@ import { Validators } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   form = new FormGroup({
-    username: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
 
