@@ -1,1 +1,49 @@
 <app-navbar></app-navbar>
+<hr>
+<div class="container text-center">
+  <h2>Add a New Friend</h2>
+</div>
+<div class="container">
+    <form [formGroup]="form" >
+        <div class="form-group">
+          <label for="name">Name</label>
+            <input formControlName="name" id="name"type="text" class="form-control" placeholder="Masukkan Nama">
+            <div *ngIf="form.get('name').touched && form.get('name').invalid">
+              <div *ngIf="form.get('name').hasError('required')">
+                <small style="color: red;">This field is required</small>
+              </div>
+              <div *ngIf="form.get('name').hasError('maxLength')">
+                <small style="color: red;">Max 20 Character</small>
+              </div>
+              <div *ngIf="form.get('name').hasError('minLength')">
+                <small style="color: red;">Min 3 Character</small>
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+            <input formControlName="email" type="email" class="form-control" placeholder="Masukkan E-mail">
+              <div *ngIf="form.get('email').touched && form.get('email').invalid">
+                <div *ngIf="form.get('email').hasError('required')">
+                  <small style="color: red;">E-Mail is required</small>
+                </div>
+                <div *ngIf="form.get('email').hasError('email')">
+                  <small style="color: red;">Not a valid E-Mail</small>
+                </div>
+              </div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Your Message</label>
+            <input formControlName="contact" placeholder="Enter Contact No Here" class="form-control">
+              <div *ngIf="form.get('contact').touched && form.get('contact').invalid">
+                <div *ngIf="form.get('contact').hasError('required')">
+                  <small style="color: red;">This Field is Required</small>
+                </div>
+                <div *ngIf="form.get('contact').hasError('pattern')">
+                  <small style="color: red;">This Field must be Number</small>
+                </div>
+              </div>
+        </div>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Add Friend</button>
+      </form>
+</div>
