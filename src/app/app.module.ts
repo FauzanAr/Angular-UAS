@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -22,12 +23,13 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path:'home', component:HomeComponent},
       {path:'friend', component:FriendComponent},
       {path:'contact-us', component:ContactUsComponent},
       {path:'**', component:NotFoundComponent}
-    ])
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
