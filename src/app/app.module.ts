@@ -1,3 +1,4 @@
+import { AuthService } from './shared/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -42,7 +43,7 @@ import { environment } from '../environments/environment';
       {path:'**', component:NotFoundComponent}
     ]),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

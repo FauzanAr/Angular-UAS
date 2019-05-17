@@ -26,6 +26,13 @@
           </div>
       </label>
     </div>
-    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Login</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="authService.SignIn(form.get('username').value, form.get('password').value)">Login</button>
   </form>
+  <hr>
+  <div class="form-group">
+    <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+      <i class="fab fa-google-plus-g"></i>
+      Log in with google
+    </button>
+  </div>
 </div>
