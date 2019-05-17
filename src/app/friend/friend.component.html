@@ -12,10 +12,10 @@
               <div *ngIf="form.get('name').hasError('required')">
                 <small style="color: red;">This field is required</small>
               </div>
-              <div *ngIf="form.get('name').hasError('maxLength')">
+              <div *ngIf="form.get('name').hasError('maxlength')">
                 <small style="color: red;">Max 20 Character</small>
               </div>
-              <div *ngIf="form.get('name').hasError('minLength')">
+              <div *ngIf="form.get('name').hasError('minlength')">
                 <small style="color: red;">Min 3 Character</small>
               </div>
             </div>

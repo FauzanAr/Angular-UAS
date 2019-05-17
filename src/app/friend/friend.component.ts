@@ -10,7 +10,7 @@ export class FriendComponent implements OnInit {
 
   phoneNumber = "^((\\+62-?)|0)?[0-9]{11}$";
   form = new FormGroup({
-    name: new FormControl('',[Validators.required, Validators.maxLength(20), Validators.minLength(3)]),
+    name: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     email: new FormControl('',[Validators.required, Validators.email]),
     contact: new FormControl('',[Validators.required, Validators.pattern(this.phoneNumber)])
   });
