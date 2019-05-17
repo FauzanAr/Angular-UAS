@@ -16,7 +16,12 @@
       <label for="email">Your E-Mail</label>
         <input formControlName="email" type="email" class="form-control" placeholder="Masukkan E-mail">
           <div *ngIf="form.get('email').touched && form.get('email').invalid">
-            <small style="color: red;">E-Mail is required</small>
+            <div *ngIf="form.get('email').hasError('required')">
+              <small style="color: red;">E-Mail is required</small>
+            </div>
+            <div *ngIf="form.get('email').hasError('email')">
+              <small style="color: red;">Not a valid E-Mail</small>
+            </div>
           </div>
     </div>
     <div class="form-group">

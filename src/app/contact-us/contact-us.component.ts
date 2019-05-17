@@ -10,7 +10,7 @@ export class ContactUsComponent implements OnInit {
   clicked = false;
   form = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('',Validators.required),
+    email: new FormControl('',[Validators.required, Validators.email]),
     message: new FormControl('',Validators.required)
   });
   constructor() { }
