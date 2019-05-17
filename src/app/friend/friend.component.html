@@ -33,7 +33,7 @@
               </div>
         </div>
         <div class="form-group">
-          <label for="contact">Your Message</label>
+          <label for="contact">Contact No</label>
             <input formControlName="contact" placeholder="Enter Contact No Here" class="form-control">
               <div *ngIf="form.get('contact').touched && form.get('contact').invalid">
                 <div *ngIf="form.get('contact').hasError('required')">
@@ -44,6 +44,33 @@
                 </div>
               </div>
         </div>
-        <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Add Friend</button>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="send()">Add Friend</button>
       </form>
+</div>
+<div class="container text-center">
+  <h3>My Friends</h3>
+  <label>Search
+    <input class="form-control">
+  </label>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="dataFriend!=null">
+      <tr *ngFor="let data of dataFriend">
+        <th scope="row">1</th>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.contact}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-danger text-center" role="alert" *ngIf="dataFriend==null">
+    Tidak Ada Data!!
+  </div>
 </div>

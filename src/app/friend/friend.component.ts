@@ -1,3 +1,4 @@
+import { Data } from './data';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendComponent implements OnInit {
 
+  dataFriend: any[];
   phoneNumber = "^((\\+62-?)|0)?[0-9]{11}$";
   form = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
@@ -22,4 +24,10 @@ export class FriendComponent implements OnInit {
   ngOnInit() {
   }
 
+  send()
+  {
+    new Data(this.form.get('name').value, this.form.get('email').value,this.form.get('contact').value);
+    this.dataFriend.push(Data);
+    console.log
+  }
 }
