@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class ContactUsComponent implements OnInit {
 
   contacts: ContactUs[];
-  clicked = false;
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('',[Validators.required, Validators.email]),
@@ -37,9 +36,4 @@ export class ContactUsComponent implements OnInit {
     this.form.reset();
   }
 
-  close()
-  {
-    this.clicked=false;
-    this.form.reset();
-  }
 }
