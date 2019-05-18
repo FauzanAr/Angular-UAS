@@ -26,7 +26,7 @@
               </div>
           </label>
         </div>
-        <button class="btn btn-primary" (click)="authService.SignUp(form.get('username').value, form.get('password').value)" [disabled]="!form.valid">Sign Up</button>
+        <button class="btn btn-primary" (click)="authService.SignUp(form.get('email').value, form.get('password').value)" [disabled]="!form.valid">Sign Up</button>
       </form>
     </div>
   </div>

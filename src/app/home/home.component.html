@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="container text-center">
+<div class="container text-center" *ngIf="authService.isLoggedIn!==true">
   <form [formGroup]="form">
     <div class="form-group">
       <label for="email">email
@@ -29,7 +29,7 @@
           </div>
       </label>
     </div>
-    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="authService.SignIn(form.get('username').value, form.get('password').value)">Login</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click)="authService.SignIn(form.get('email').value, form.get('password').value)">Login</button>
     Or
     <button class="btn btn-primary" routerLink="/sign-up">Sign Up</button>
   </form>

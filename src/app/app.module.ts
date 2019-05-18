@@ -1,3 +1,5 @@
+import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -44,10 +46,10 @@ import { VerifyEmailAddressComponent } from './verify-email-address/verify-email
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full' },
       {path:'home', component:HomeComponent},
-      {path:'friend', component:FriendComponent},
+      {path:'friend', component:FriendComponent, canActivate:[AuthGuard]},
       {path:'contact-us', component:ContactUsComponent},
-      {path:'sign-up', component:SignUpComponent},
-      {path:'verify-email-address', component:VerifyEmailAddressComponent},
+      {path:'sign-up', component:SignUpComponent, canActivate:[SecureInnerPagesGuard]},
+      {path:'verify-email-address', component:VerifyEmailAddressComponent, canActivate:[SecureInnerPagesGuard]},
       {path:'**', component:NotFoundComponent}
     ]),
   ],
