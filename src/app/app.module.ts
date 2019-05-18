@@ -1,3 +1,4 @@
+import { FriendServiceService } from './shared/services/friend-service.service';
 //Services Module
 
 import { ContactusService } from './shared/services/contactus.service';
@@ -58,7 +59,7 @@ import { VerifyEmailAddressComponent } from './verify-email-address/verify-email
       {path:'**', component:NotFoundComponent}
     ]),
   ],
-  providers: [AuthService,ContactusService],
+  providers: [AuthService, ContactusService, FriendServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
