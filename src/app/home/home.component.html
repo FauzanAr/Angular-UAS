@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container text-center" *ngIf="authService.isLoggedIn && authService.userData as data">
-  <p>Selamat datang {{data.email}}</p>
+  <p>Selamat datang {{(data.displayName)?data.displayName : 'User'}}</p>
 </div>
 <div class="text-center">
   <h3>My Friends App..!</h3>
