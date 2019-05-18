@@ -1,6 +1,11 @@
+//Services Module
+
+import { ContactusService } from './shared/services/contactus.service';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { AuthService } from './shared/services/auth.service';
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -53,7 +58,7 @@ import { VerifyEmailAddressComponent } from './verify-email-address/verify-email
       {path:'**', component:NotFoundComponent}
     ]),
   ],
-  providers: [AuthService],
+  providers: [AuthService,ContactusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

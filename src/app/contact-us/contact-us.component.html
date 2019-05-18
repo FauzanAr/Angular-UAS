@@ -35,11 +35,12 @@
   </form>
 </div>
 <hr>
-<div class="container" *ngIf="clicked" >
-  <h4>Your Data</h4>
-  <p>Username: {{this.getName().value}}</p>
-  <p>Email: {{this.getEmail().value}}</p>
-  <p>Message: {{this.getMessage().value}}</p>
-  <button type="submit" class="btn btn-danger" (click)="close()">Close</button>
+<div class="container" *ngIf="contacts !== null" >
+  <ul *ngFor="let contact of contacts">
+    <p>{{contact.name}}</p>
+    <p>{{contact.email}}</p>
+    <p>{{contact.message}}</p>
+    <hr>
+  </ul>
 </div>
 

@@ -1,3 +1,5 @@
+import { ContactusService } from './../shared/services/contactus.service';
+import { ContactUs } from './../shared/services/contactus';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,20 +9,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+
+  contacts: ContactUs[];
   clicked = false;
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('',[Validators.required, Validators.email]),
     message: new FormControl('',Validators.required)
   });
-  constructor() { }
+  constructor(private contactService:ContactusService) { }
 
   ngOnInit() {
+    this.contactService.getContact().subscribe(data => {
+      this.contacts = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as ContactUs;
+      })
+      console.log(this.contacts)
+    })
   }
 
   send()
   {
-    this.clicked=true;
+    this.contactService.createContact(this.form.value)
+    this.form.reset();
   }
 
   close()
@@ -28,8 +42,4 @@ export class ContactUsComponent implements OnInit {
     this.clicked=false;
     this.form.reset();
   }
-
-  getName(){return this.form.get('name');}
-  getEmail(){return this.form.get('email');}
-  getMessage(){return this.form.get('message');}
 }
