@@ -28,4 +28,9 @@ export class FriendServiceService {
     .collection('friends')
     .add(friend);
   }
+
+  deleteFriend(friendId:string)
+  {
+    this.firestore.doc('users/'+this.userUid.uid+'/friends/'+friendId).delete();
+  }
 }

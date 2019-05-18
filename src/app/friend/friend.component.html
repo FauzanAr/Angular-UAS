@@ -59,6 +59,7 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Contact</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody *ngIf="dataFriend!=null">
@@ -67,6 +68,7 @@
         <td>{{data.name.toUpperCase()}}</td>
         <td>{{data.email}}</td>
         <td>{{data.contact}}</td>
+        <td><button class="btn btn-danger" (click)="delete(data.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

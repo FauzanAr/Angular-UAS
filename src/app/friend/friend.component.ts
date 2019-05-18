@@ -41,4 +41,8 @@ export class FriendComponent implements OnInit {
     this.form.reset();
   }
 
+  delete(id){
+    this.friendService.deleteFriend(id);
+  }
+
 }
