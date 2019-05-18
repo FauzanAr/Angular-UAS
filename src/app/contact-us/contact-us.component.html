@@ -37,9 +37,15 @@
 <hr>
 <div class="container" *ngIf="contacts !== null" >
   <ul *ngFor="let contact of contacts">
-    <p>{{contact.name}}</p>
-    <p>{{contact.email}}</p>
-    <p>{{contact.message}}</p>
+    <div class="card">
+        <div class="card-header">
+          {{contact.name}}
+        </div>
+        <div class="card-body">
+          <small>From : </small><h6 class="card-title">{{contact.email}}</h6>
+          <small>Message : </small><p class="card-text"><q><i>{{contact.message}}</i></q></p>
+        </div>
+      </div>
     <hr>
   </ul>
 </div>
