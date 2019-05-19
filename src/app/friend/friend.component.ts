@@ -1,6 +1,6 @@
 import { FriendServiceService } from './../shared/services/friend-service.service';
 import { Friend } from './../shared/services/friend';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormGroup,FormControl,Validators, FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -43,6 +43,10 @@ export class FriendComponent implements OnInit {
 
   delete(id){
     this.friendService.deleteFriend(id);
+  }
+
+  search(string){
+    console.log(string);
   }
 
 }

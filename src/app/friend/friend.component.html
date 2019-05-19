@@ -50,7 +50,7 @@
 <div class="container text-center">
   <h3>My Friends</h3>
   <label>Search
-    <input class="form-control">
+    <input [(ngModel)]="searchText" type="text">
   </label>
   <table class="table">
     <thead>
@@ -63,7 +63,7 @@
       </tr>
     </thead>
     <tbody *ngIf="dataFriend!=null">
-      <tr *ngFor="let data of dataFriend; let i = index">
+      <tr *ngFor="let data of dataFriend | filter : searchText; let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{data.name.toUpperCase()}}</td>
         <td>{{data.email}}</td>
