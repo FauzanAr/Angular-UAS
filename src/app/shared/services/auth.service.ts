@@ -83,6 +83,7 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
+
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());

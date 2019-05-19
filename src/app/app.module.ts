@@ -1,5 +1,7 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 //Services Module
 
+import { FriendServiceService } from './shared/services/friend-service.service';
 import { ContactusService } from './shared/services/contactus.service';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 import { AuthGuard } from './shared/guard/auth.guard';
@@ -8,7 +10,8 @@ import { AuthService } from './shared/services/auth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 //Component Module
 
@@ -43,8 +46,11 @@ import { VerifyEmailAddressComponent } from './verify-email-address/verify-email
   ],
   imports: [
     BrowserModule,
+    AngularFontAwesomeModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -58,7 +64,7 @@ import { VerifyEmailAddressComponent } from './verify-email-address/verify-email
       {path:'**', component:NotFoundComponent}
     ]),
   ],
-  providers: [AuthService,ContactusService],
+  providers: [AuthService, ContactusService, FriendServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

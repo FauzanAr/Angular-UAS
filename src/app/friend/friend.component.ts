@@ -1,6 +1,8 @@
-import { Data } from './data';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FriendServiceService } from './../shared/services/friend-service.service';
+import { Friend } from './../shared/services/friend';
+import { FormGroup,FormControl,Validators, FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-friend',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FriendComponent implements OnInit {
 
-  dataFriend: any[];
+  dataFriend: Friend[];
   phoneNumber = "^((\\+62-?)|0)?[0-9]{11}$";
   form = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
@@ -19,15 +21,32 @@ export class FriendComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private friendService:FriendServiceService) { }
 
   ngOnInit() {
+    this.friendService.getFriend().subscribe(data => {
+      this.dataFriend = data.map(e => {
+        return{
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        }as Friend;
+      })
+      console.log(this.dataFriend)
+    })
   }
 
   send()
   {
-    new Data(this.form.get('name').value, this.form.get('email').value,this.form.get('contact').value);
-    this.dataFriend.push(Data);
-    console.log
+    this.friendService.createFriend(this.form.value)
+    this.form.reset();
   }
+
+  delete(id){
+    this.friendService.deleteFriend(id);
+  }
+
+  search(string){
+    console.log(string);
+  }
+
 }

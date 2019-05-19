@@ -50,7 +50,7 @@
 <div class="container text-center">
   <h3>My Friends</h3>
   <label>Search
-    <input class="form-control">
+    <input [(ngModel)]="searchText" type="text">
   </label>
   <table class="table">
     <thead>
@@ -59,14 +59,16 @@
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Contact</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody *ngIf="dataFriend!=null">
-      <tr *ngFor="let data of dataFriend">
-        <th scope="row">1</th>
-        <td>{{data.name}}</td>
+      <tr *ngFor="let data of dataFriend | filter : searchText; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{data.name.toUpperCase()}}</td>
         <td>{{data.email}}</td>
         <td>{{data.contact}}</td>
+        <td><button class="btn btn-danger" (click)="delete(data.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>
